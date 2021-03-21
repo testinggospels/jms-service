@@ -1,6 +1,7 @@
 # kafka-service
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[Spring Boot](http://projects.spring.io/spring-boot/) for your Kafka testing needs.
+
+[Spring Boot](http://projects.spring.io/spring-boot/) Application for your Kafka testing needs.
 ## Requirements
 For building and running the application you need:
 - [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
