@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  kafka-service:
+    image: "shubhendumadhukar/kafka-service"
+    ports:
+      - "8080:8080"
+    volumes:
+      - /dir/containing/truststore.jks/files:/app/certs
+
