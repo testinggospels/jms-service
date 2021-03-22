@@ -1,9 +1,13 @@
 version: "3.9"
 services:
   kafka-service:
-    image: "shubhendumadhukar/kafka-service"
+    image: "kafka-service:0.0.1"
     ports:
       - "8080:8080"
     volumes:
-      - /dir/containing/truststore.jks/files:/app/certs
+      - /localdir/containing/truststore.jks:/app/certs
+    environment:
+      - spring.kafka.bootstrap-servers=127.0.0.1:9092
+      - kafkaservice.truststore.location=/app/certs/truststore.jks
+      - kafkaservice.truststore.password=Password@123
 
