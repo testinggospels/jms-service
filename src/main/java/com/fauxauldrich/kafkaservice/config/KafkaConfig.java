@@ -21,10 +21,10 @@ public class KafkaConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String BOOTSTRAP_SERVERS;
 
-    @Value("${kafkaservice.trustore.location}")
+    @Value("${kafkaservice.truststore.location}")
     private String TRUSTSTORE_LOCATION;
 
-    @Value("${kafkaservice.trustore.password}")
+    @Value("${kafkaservice.truststore.password}")
     private String TRUSTSTORE_PASSWORD;
 
     @Bean
