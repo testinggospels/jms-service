@@ -20,10 +20,10 @@ https://github.com/fauxauldrich/kafka-service/wiki
 **Run as a Docker container**
 Fastest way to get started is by using the image available on hub.docker.com:
 
-- Use the `docker-compose.yml` to bring up your container. (Modify `docker-compose.yml` to reflect the dir path for your truststore files)
+- Use the `docker-compose.yml` to bring up your container. (Modify `docker-compose.yml` to reflect the dir path for your truststore files under volumes and update environment variables accordingly)
 - Or alternatively, to build image locally use Dockerfile provided.
 - Build with : `docker build -t kafka-service:0.0.1 .`
-- Run as a container using: `docker run -d --name kafka-service -p 8080:8080 -v /dir/containing/truststore.jks/files:/app/certs kafka-service:0.0.1`
+- Run as a container using: `docker run -d -env spring.kafka.bootstrap-servers=127.0.0.1:9092 -env kafkaservice.truststore.location=/home/truststore.jks -env kafkaservice.truststore.password=Password@123 --name kafka-service -p 8080:8080 -v /dir/containing/truststore.jks/files:/app/certs kafka-service:0.0.1`
 
 There are several other ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.fauxauldrich.kafkaservice.KafkaServiceApplication` class from your IDE.
 
