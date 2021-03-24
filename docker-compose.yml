@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   kafka-service:
-    image: "kafka-service:0.0.1"
+    image: "shubhendumadhukar/kafka-service"
     ports:
       - "8080:8080"
     volumes:
@@ -10,4 +10,4 @@ services:
       - spring.kafka.bootstrap-servers=127.0.0.1:9092
       - kafkaservice.truststore.location=/app/certs/truststore.jks
       - kafkaservice.truststore.password=Password@123
-
+# Add another entry under services to connect to a different cluster
