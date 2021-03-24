@@ -18,7 +18,7 @@ https://github.com/fauxauldrich/kafka-service/wiki
 ## Running the application locally
 
 **Run as a Docker container**
-Fastest way to get started is by using the image available on hub.docker.com:
+Fastest way to get started is by using the image available on [Docker Hub](https://hub.docker.com/r/shubhendumadhukar/kafka-service):
 
 - Use the `docker-compose.yml` to bring up your container. (Modify `docker-compose.yml` to reflect the dir path for your truststore files under volumes and update environment variables accordingly)
 - Or alternatively, to build image locally use Dockerfile provided.
