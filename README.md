@@ -35,12 +35,12 @@ mvn spring-boot:run
 
 You can also download the JAR file from [Releases](https://github.com/fauxauldrich/kafka-service/releases) and run it locally:
 
-- `java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jk -Dkafkaservice.truststore.password=Password -jar target/kafka-service-${VERSION}.jar`
+- `java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar kafka-service-${VERSION}.jar`
 
 Or, you can build locally and run the jar file
 
 - `./mvnw clean install package -f pom.xml`
-- `java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jk -Dkafkaservice.truststore.password=Password -jar target/kafka-service-${VERSION}.jar`
+- `java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar target/kafka-service-${VERSION}.jar`
 
 ## Copyright
 
