@@ -41,14 +41,14 @@ Fastest way to get started is by using the image available on [Docker Hub](https
 
 - You can also download the JAR file from [Releases](https://github.com/fauxauldrich/kafka-service/releases) and run it locally:
   ```shell
-  java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar kafka-service-${VERSION}.jar
+  java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar kafka-service-${VERSION}-java11.jar
   ```
 - Or, you can build locally and run the jar file
 
   ```shell
   ./mvnw clean install package -f pom.xml
 
-  java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar target/kafka-service-${VERSION}.jar
+  java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar target/kafka-service-${VERSION}-java11.jar
   ```
 
 ## Copyright
