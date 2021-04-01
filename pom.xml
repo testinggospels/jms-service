@@ -9,10 +9,10 @@
 	</parent>
 	<groupId>com.fauxauldrich</groupId>
 	<artifactId>kafka-service</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-java11</version>
 	<packaging>jar</packaging>
 	<name>kafka-service</name>
-	<description>Demo project for Spring Boot</description>
+	<description>HTTP Service for Testing Kafka Cluster</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -53,6 +53,16 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>29.0-jre</version>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-core</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+			<version>1.6.0</version>
 		</dependency>
 	</dependencies>
 

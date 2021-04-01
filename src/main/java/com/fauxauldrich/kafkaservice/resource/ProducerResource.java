@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.micrometer.core.annotation.Timed;
+
 @RestController
 @RequestMapping("/kafka")
 public class ProducerResource {
@@ -31,15 +33,17 @@ public class ProducerResource {
     private Handlebars handebarsConfig;
 
     @PostMapping("/publish")
+    @Timed(description = "publish_simple")
     public String postSimple(@RequestParam("topic") String TOPIC, @RequestParam(required = false) String KEY,
             @RequestParam(required = false) Integer PARTITION_ID, @RequestBody ProducerModel payload)
             throws IOException {
         Template template = handebarsConfig.compileInline(payload.getMessage());
         if (KEY != null) {
+            Template keyTemplate = handebarsConfig.compileInline(KEY);
             if (PARTITION_ID != null) {
-                kafkaTemplate.send(TOPIC, PARTITION_ID, KEY, template.apply(""));
+                kafkaTemplate.send(TOPIC, PARTITION_ID, keyTemplate.apply(""), template.apply(""));
             }
-            kafkaTemplate.send(TOPIC, KEY, template.apply(""));
+            kafkaTemplate.send(TOPIC, keyTemplate.apply(""), template.apply(""));
         } else {
             kafkaTemplate.send(TOPIC, template.apply(""));
         }
@@ -47,6 +51,7 @@ public class ProducerResource {
     }
 
     @PostMapping("/publish/with-headers")
+    @Timed(description = "publish_with_headers")
     public String postSimpleWithHeaders(@RequestParam("topic") String TOPIC, @RequestParam(required = false) String KEY,
             @RequestParam(required = false) Integer PARTITION_ID, @RequestBody ProducerModelWithHeaders payload)
             throws IOException {
@@ -55,17 +60,20 @@ public class ProducerResource {
         ProducerRecord<String, Object> record;
 
         if (KEY != null) {
+            Template keyTemplate = handebarsConfig.compileInline(KEY);
             if (PARTITION_ID != null) {
-                record = new ProducerRecord<>(TOPIC, PARTITION_ID, KEY, template.apply(""));
+                record = new ProducerRecord<>(TOPIC, PARTITION_ID, keyTemplate.apply(""), template.apply(""));
             } else {
-                record = new ProducerRecord<>(TOPIC, KEY, template.apply(""));
+                record = new ProducerRecord<>(TOPIC, keyTemplate.apply(""), template.apply(""));
             }
         } else {
-            record = new ProducerRecord<>(TOPIC, PARTITION_ID, KEY, template.apply(""));
+            record = new ProducerRecord<>(TOPIC, template.apply(""));
         }
 
-        for (Map.Entry<String, String> entry : payload.getHeaders().entrySet())
-            record.headers().add(new RecordHeader(entry.getKey(), entry.getValue().getBytes()));
+        for (Map.Entry<String, String> entry : payload.getHeaders().entrySet()) {
+            Template headerTemplate = handebarsConfig.compileInline(entry.getValue());
+            record.headers().add(new RecordHeader(entry.getKey(), (headerTemplate.apply("")).getBytes()));
+        }
 
         kafkaTemplate.send(record);
 
@@ -73,15 +81,17 @@ public class ProducerResource {
     }
 
     @PostMapping("/publish/secure")
+    @Timed(description = "publish_secure")
     public String postSecure(@RequestParam("topic") String TOPIC, @RequestParam(required = false) String KEY,
             @RequestParam(required = false) Integer PARTITION_ID, @RequestBody ProducerModel payload)
             throws IOException {
         Template template = handebarsConfig.compileInline(payload.getMessage());
         if (KEY != null) {
+            Template keyTemplate = handebarsConfig.compileInline(KEY);
             if (PARTITION_ID != null) {
-                kafkaSecureTemplate.send(TOPIC, PARTITION_ID, KEY, template.apply(""));
+                kafkaSecureTemplate.send(TOPIC, PARTITION_ID, keyTemplate.apply(""), template.apply(""));
             }
-            kafkaSecureTemplate.send(TOPIC, KEY, template.apply(""));
+            kafkaSecureTemplate.send(TOPIC, keyTemplate.apply(""), template.apply(""));
         } else {
             kafkaSecureTemplate.send(TOPIC, template.apply(""));
         }
@@ -89,6 +99,7 @@ public class ProducerResource {
     }
 
     @PostMapping("/publish/secure/with-headers")
+    @Timed(description = "publish_secure_with_headers")
     public String postSecureWithHeaders(@RequestParam("topic") String TOPIC, @RequestParam(required = false) String KEY,
             @RequestParam(required = false) Integer PARTITION_ID, @RequestBody ProducerModelWithHeaders payload)
             throws IOException {
@@ -97,17 +108,20 @@ public class ProducerResource {
         ProducerRecord<String, Object> record;
 
         if (KEY != null) {
+            Template keyTemplate = handebarsConfig.compileInline(KEY);
             if (PARTITION_ID != null) {
-                record = new ProducerRecord<>(TOPIC, PARTITION_ID, KEY, template.apply(""));
+                record = new ProducerRecord<>(TOPIC, PARTITION_ID, keyTemplate.apply(""), template.apply(""));
             } else {
-                record = new ProducerRecord<>(TOPIC, KEY, template.apply(""));
+                record = new ProducerRecord<>(TOPIC, keyTemplate.apply(""), template.apply(""));
             }
         } else {
-            record = new ProducerRecord<>(TOPIC, PARTITION_ID, KEY, template.apply(""));
+            record = new ProducerRecord<>(TOPIC, template.apply(""));
         }
 
-        for (Map.Entry<String, String> entry : payload.getHeaders().entrySet())
-            record.headers().add(new RecordHeader(entry.getKey(), entry.getValue().getBytes()));
+        for (Map.Entry<String, String> entry : payload.getHeaders().entrySet()) {
+            Template headerTemplate = handebarsConfig.compileInline(entry.getValue());
+            record.headers().add(new RecordHeader(entry.getKey(), (headerTemplate.apply("")).getBytes()));
+        }
 
         kafkaSecureTemplate.send(record);
 
