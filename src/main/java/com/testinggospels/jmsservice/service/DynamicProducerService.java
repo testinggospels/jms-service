@@ -1,4 +1,4 @@
-package com.fauxauldrich.kafkaservice.service;
+package com.testinggospels.jmsservice.service;
 
 import java.util.Map;
 import java.util.Properties;
@@ -151,4 +151,3 @@ public class DynamicProducerService {
         });
     }
 }
-

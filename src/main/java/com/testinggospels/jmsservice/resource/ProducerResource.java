@@ -1,12 +1,12 @@
-package com.fauxauldrich.kafkaservice.resource;
+package com.testinggospels.jmsservice.resource;
 
 import java.io.IOException;
 import java.util.Map;
 
-import com.fauxauldrich.kafkaservice.model.ProducerModel;
-import com.fauxauldrich.kafkaservice.model.ProducerModelWithHeaders;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
+import com.testinggospels.jmsservice.model.ProducerModel;
+import com.testinggospels.jmsservice.model.ProducerModelWithHeaders;
 
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.internals.RecordHeader;

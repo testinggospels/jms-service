@@ -1,11 +1,11 @@
-package com.fauxauldrich.kafkaservice.helpers;
+package com.testinggospels.jmsservice.helpers;
 
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.TagType;
 
-import static com.fauxauldrich.kafkaservice.helpers.Encoding.decodeBase64;
-import static com.fauxauldrich.kafkaservice.helpers.Encoding.encodeBase64;
+import static com.testinggospels.jmsservice.helpers.Encoding.decodeBase64;
+import static com.testinggospels.jmsservice.helpers.Encoding.encodeBase64;
 
 import java.io.IOException;
 

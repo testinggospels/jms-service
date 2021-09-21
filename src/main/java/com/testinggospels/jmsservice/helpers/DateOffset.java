@@ -1,4 +1,4 @@
-package com.fauxauldrich.kafkaservice.helpers;
+package com.testinggospels.jmsservice.helpers;
 
 import java.util.Calendar;
 import java.util.Date;

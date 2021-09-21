@@ -1,4 +1,4 @@
-package com.fauxauldrich.kafkaservice.helpers;
+package com.testinggospels.jmsservice.helpers;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import java.util.Date;
 
-public enum KafkaServiceHelper implements Helper<Object> {
+public enum JMSServiceHelper implements Helper<Object> {
     randomValue {
         private final RandomValueHelper helper = new RandomValueHelper();
 

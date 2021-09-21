@@ -1,5 +1,5 @@
 
-package com.fauxauldrich.kafkaservice.helpers;
+package com.testinggospels.jmsservice.helpers;
 
 import com.fasterxml.jackson.databind.util.ISO8601Utils;
 

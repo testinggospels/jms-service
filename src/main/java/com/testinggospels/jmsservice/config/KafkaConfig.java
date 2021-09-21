@@ -1,4 +1,4 @@
-package com.fauxauldrich.kafkaservice.config;
+package com.testinggospels.jmsservice.config;
 
 import java.util.HashMap;
 import java.util.Map;

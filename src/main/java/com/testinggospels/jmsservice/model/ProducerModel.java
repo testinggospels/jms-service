@@ -1,4 +1,4 @@
-package com.fauxauldrich.kafkaservice.model;
+package com.testinggospels.jmsservice.model;
 
 public class ProducerModel {
     private String message;

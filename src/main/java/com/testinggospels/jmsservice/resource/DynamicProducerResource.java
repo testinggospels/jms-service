@@ -1,12 +1,12 @@
-package com.fauxauldrich.kafkaservice.resource;
+package com.testinggospels.jmsservice.resource;
 
 import java.io.IOException;
 
-import com.fauxauldrich.kafkaservice.model.DynamicProducerModel;
-import com.fauxauldrich.kafkaservice.model.DynamicProducerModelWithHeaders;
-import com.fauxauldrich.kafkaservice.service.DynamicProducerService;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
+import com.testinggospels.jmsservice.model.DynamicProducerModel;
+import com.testinggospels.jmsservice.model.DynamicProducerModelWithHeaders;
+import com.testinggospels.jmsservice.service.DynamicProducerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
