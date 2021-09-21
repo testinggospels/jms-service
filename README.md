@@ -13,7 +13,7 @@ For building and running the application you need:
 
 ## Documentation
 
-https://github.com/fauxauldrich/jms-service/wiki
+https://github.com/testinggospels/jms-service/wiki
 
 ## Running the application locally
 
@@ -31,7 +31,7 @@ Fastest way to get started is by using the image available on [Docker Hub](https
 
 **Run from your IDE**
 
-- Execute the `main` method in the `com.fauxauldrich.jmsservice.jmsServiceApplication` class from your IDE.
+- Execute the `main` method in the `com.testinggospels.jmsservice.jmsServiceApplication` class from your IDE.
 - Or you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
   ```shell
   mvn spring-boot:run
@@ -39,7 +39,7 @@ Fastest way to get started is by using the image available on [Docker Hub](https
 
 **Run as a JAR**
 
-- You can also download the JAR file from [Releases](https://github.com/fauxauldrich/jms-service/releases) and run it locally:
+- You can also download the JAR file from [Releases](https://github.com/testinggospels/jms-service/releases) and run it locally:
   ```shell
   java -Dspring.kafka.bootstrap-servers=127.0.0.1:9092 -Dkafkaservice.truststore.location=/home/truststore.jks -Dkafkaservice.truststore.password=Password -jar jms-service-${VERSION}-java11.jar
   ```
@@ -53,4 +53,4 @@ Fastest way to get started is by using the image available on [Docker Hub](https
 
 ## Copyright
 
-Released under the MIT License. See the [LICENSE](https://github.com/fauxauldrich/jms-service/blob/main/LICENSE) file.
+Released under the MIT License. See the [LICENSE](https://github.com/testinggospels/jms-service/blob/main/LICENSE) file.
